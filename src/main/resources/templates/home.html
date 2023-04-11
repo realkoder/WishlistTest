@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/static/myStyle.css" rel="stylesheet" type="text/css"/>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+    <header>
+        <nav class="navbarContainer">
+            <div class="headerContainer">
+                <h1>WISHING CLOUD</h1>
+          </div>
+          <div class="optionsContainer">
+              <h4>MY FRIENDS</h4>
+              <h4>ABOUT</h4>
+              <h4>LOGOUT</h4>
+          </div>
+       </nav>
+    </header>
+
+    <main>
+        <H2>MY WISHLIST xD</H2>
+        <div class="tableContainer">
+            <table>
+                <thead>
+                <tr>
+                    <th>WISH ITEM</th>
+                    <th>WISH AMOUNT</th>
+                    <th>WISH AMOUNT</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item: ${items}">
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${artist.artistName}"></td>
+                    <td>
+                        <form action="/deleteItem" method="post">
+                            <input type="hidden" name="itemID" th:value="${item.artistId}">
+                            <button type="submit">Delete <span th:text="${artist.artistName}"/> from library</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <p>Contact us at xxx-xxx-xxx. Copyright 2023</p>
+        </div>
+    </footer>
+
+</body>
+</html>
